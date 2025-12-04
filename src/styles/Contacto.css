@@ -1,0 +1,27 @@
+/* Hero / vídeo: alinear contenido a la izquierda */
+.hero {
+    min-height: 100vh;
+    display: grid;
+    align-items: center;       /* mantiene centrado verticalmente */
+    justify-items: start;      /* mueve el contenido a la izquierda */
+    position: relative;
+    overflow: hidden;
+    padding: 120px 20px 60px;
+    padding-left: clamp(16px, 6vw, 80px); /* espacio izquierdo responsivo */
+}
+
+/* Hero content ajustado para alinearse a la izquierda */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    width: 100%;
+    text-align: left; /* ahora a la izquierda */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    padding: 3rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(2, 6, 23, 0.35);
+    backdrop-filter: blur(6px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-sizing: border-box;
+}

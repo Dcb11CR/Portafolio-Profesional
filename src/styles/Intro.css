@@ -1,0 +1,243 @@
+/* src/styles/Intro.css */
+:root {
+  --bg: #0b1220;
+  --card: rgba(7, 10, 16, 0.6);
+  --text: #e6eef8;
+  --muted: #9fb3d0;
+  --accent: #60a5fa;
+  --accent-2: #34d399;
+  --glass: rgba(255, 255, 255, 0.04);
+  --transition: 0.3s;
+}
+
+/* Cuerpo general */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 95%, #0000)), #0b1220;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background var(--transition), color var(--transition);
+  line-height: 1.4;
+}
+
+/* Navbar */
+.navbar {
+    width: fit-content;
+    max-width: 1100px;
+    margin: 20px auto; /* centra la barra en la página */
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center; /* centra el contenido dentro de la barra */
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--glass), transparent);
+    box-shadow: 0 6px 20px rgba(3, 10, 18, 0.08);
+}
+
+/* Logo */
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: var(--text); /* Usando el color de texto claro */
+    text-align: center;
+}
+
+/* Enlaces en la barra de navegación */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0; /* eliminar márgenes para un centrado preciso */
+}
+
+.nav-links a {
+   
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover para los enlaces */
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--accent-2); /* Cambiar a un tono más destacado al pasar el ratón */
+}
+
+
+/* Video de fondo */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 20px 60px;
+}
+
+.video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.video-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.5) contrast(0.98);
+}
+
+/* Contenido de la introducción */
+.hero-content,
+.hero-content p {
+    color: #ffffff;
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Mover solo el título (h1) a la izquierda */
+.hero-content h1 {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 8px 0;
+  font-size: 1.9rem;
+}
+
+
+/* Animaciones */
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.15s;
+}
+
+.fade-in:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: slideUp 0.8s ease forwards;
+  animation-delay: 0.32s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón de llamada a la acción */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 20%, transparent);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--bg);
+  color: var(--text);
+  margin-top: 40px;
+}
+
+/* Meta información */
+.hero-meta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hero-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.decor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  margin-top: 4px;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 720px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .hero-content {
+    padding: 28px;
+    border-radius: 12px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .slide-up,
+  .btn,
+  .theme-toggle {
+    animation: none;
+    transition: none;
+  }
+}

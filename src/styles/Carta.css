@@ -1,0 +1,217 @@
+/* src/styles/Carta.css - adaptado para src/components/Carta.js */
+
+:root{
+    --bg:#0b1220;
+    --card:rgba(7,10,16,0.6);
+    --text:#e6eef8;
+    --muted:#9fb3d0;
+    --accent:#60a5fa;
+    --accent-2:#34d399;
+    --glass:rgba(255,255,255,0.04);
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 95%, #0000)), var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.4;
+    transition:background .3s,color .3s;
+}
+
+/* Navbar */
+.navbar {
+    width: fit-content;
+    max-width: 1100px;
+    margin: 20px auto; /* centra la barra en la página */
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center; /* centra el contenido dentro de la barra */
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--glass), transparent);
+    box-shadow: 0 6px 20px rgba(3, 10, 18, 0.08);
+}
+
+/* Logo */
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: var(--text); /* Usando el color de texto claro */
+    text-align: center;
+}
+
+/* Enlaces en la barra de navegación */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0; /* eliminar márgenes para un centrado preciso */
+}
+
+.nav-links a {
+    color: var(--accent); /* Usamos el color de acento para los enlaces */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover para los enlaces */
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--accent-2); /* Cambiar a un tono más destacado al pasar el ratón */
+}
+
+/* Estado activo de los enlaces */
+.nav-links a.active {
+    color: var(--accent-2); /* Resaltamos el enlace activo con un color diferente */
+    font-weight: 700;
+}
+
+/* HERO + VIDEO BG */
+.hero{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    position:relative;
+    overflow:hidden;
+    padding:120px 20px 60px;
+}
+.video-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+.video-bg video{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    min-width:100%;
+    min-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:cover;
+    filter:brightness(.5) contrast(.98);
+}
+
+/* HERO CONTENT / CARD */
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:3rem 1.25rem;
+    pointer-events:none;
+}
+.hero-card{
+    pointer-events:auto;
+    width:100%;
+    max-width:920px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(8px) saturate(120%);
+    -webkit-backdrop-filter:blur(8px) saturate(120%);
+    box-shadow:0 12px 40px rgba(0,0,0,.5);
+    padding:2rem;
+    border-radius:14px;
+    color:#f7f7f7;
+    text-align:left;
+    font-family:inherit;
+    z-index:2;
+}
+
+/* Card header */
+.hero-card h1{
+    margin:0 0 .5rem 0;
+    font-size:1.9rem;
+    font-weight:700;
+    letter-spacing:-.02em;
+    text-align:left;
+}
+.meta{
+    color:rgba(255,255,255,.75);
+    font-size:.95rem;
+    margin-bottom:.35rem;
+}
+
+/* Card body (scrollable on small screens) */
+.card-body{
+    font-size:1rem;
+    line-height:1.6;
+    color:rgba(245,245,245,.95);
+    max-height:52vh;
+    overflow:auto;
+    padding-right:.25rem;
+    margin-top:.75rem;
+}
+.card-body p{margin:0 0 1rem 0}
+
+/* Address */
+.address{
+    margin-top:1rem;
+    color:rgba(255,255,255,.9);
+    border-top:1px dashed rgba(255,255,255,.06);
+    padding-top:.75rem;
+    display:flex;
+    flex-direction:column;
+    gap:.25rem;
+    font-size:.95rem;
+}
+.address a{
+    color:#cfe7ff;
+    text-decoration:underline;
+}
+
+/* Footer */
+footer{
+    padding:20px;
+    text-align:center;
+    background-color:transparent;
+    color:var(--text);
+    margin-top:40px;
+}
+
+/* Buttons (kept minimal; the component doesn't use them but kept for reuse) */
+.btn{
+    display:inline-block;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:#fff;
+    padding:.6rem .9rem;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 8px 24px color-mix(in srgb,var(--accent) 20%, transparent);
+    transition:transform .16s ease, box-shadow .16s ease;
+}
+.btn:hover{transform:translateY(-3px); box-shadow:0 18px 36px color-mix(in srgb,var(--accent) 22%, transparent)}
+
+/* Small utilities / animations */
+.fade-in{opacity:0;transform:translateY(8px);animation:fadeInUp .8s ease forwards}
+.slide-up{opacity:0;animation:slideUp .6s .12s ease both}
+@keyframes fadeInUp{to{opacity:1;transform:none}}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Responsivo */
+@media (max-width:900px){
+    .navbar{padding:10px 16px}
+    .nav-links{gap:12px}
+}
+@media (max-width:600px){
+    .hero{padding:80px 14px 40px}
+    .hero-card{padding:1.25rem;border-radius:12px}
+    .hero-card h1{font-size:1.4rem}
+    .card-body{max-height:60vh}
+    .nav-links{flex-wrap:wrap;justify-content:center}
+}
+

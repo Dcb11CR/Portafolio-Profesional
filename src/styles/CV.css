@@ -1,0 +1,275 @@
+/* src/styles/CV.css */
+:root {
+    --bg: #0b1220;
+    --card: rgba(7,10,16,0.6);
+    --text: #e6eef8;
+    --muted: #9fb3d0;
+    --accent: #60a5fa;
+    --accent-2: #34d399;
+    --glass: rgba(255,255,255,0.04);
+}
+
+/* Reset / Layout */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 95%, #0000)), var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background 0.3s, color 0.3s;
+    line-height: 1.4;
+}
+
+/* Page wrapper */
+.cv-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-content .cv-container h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    color: #ffffff;
+    letter-spacing: 0.6px;
+    text-align: left;
+    font-weight: 700;
+}
+
+
+/* Header / Navbar */
+header {
+    display: flex;
+    justify-content: center;
+    padding: 12px 16px;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--glass), transparent);
+    box-shadow: 0 6px 20px rgba(3, 10, 18, 0.08);
+}
+
+/* Logo */
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: var(--text);
+    text-align: left;
+    font-size: 1rem;
+}
+
+/* Nav links */
+.nav-links {
+    display: flex;
+    gap: 14px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links li { margin: 0; }
+.nav-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: color 0.18s ease, background 0.18s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--accent-2);
+    background: rgba(255,255,255,0.02);
+}
+.nav-links a.active {
+    color: var(--accent-2);
+    font-weight: 700;
+}
+
+/* Hero + video background */
+.hero {
+    min-height: calc(100vh - 120px);
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+}
+
+.video-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.85;
+}
+.video-bg video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.45) contrast(0.98);
+}
+
+/* Main CV card */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* más separación entre elementos */
+    text-align: left;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    padding: 36px; /* mayor espacio interior */
+    border-radius: 16px;
+    box-shadow: 0 14px 48px rgba(2, 6, 23, 0.35);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+/* small animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+.slide-up {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: slideUp 0.6s cubic-bezier(.2,.9,.3,1) forwards;
+}
+@keyframes fadeInUp {
+    to { opacity: 1; transform: none; }
+}
+@keyframes slideUp {
+    to { opacity: 1; transform: none; }
+}
+
+/* CV container and header */
+.cv-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 14px;
+    background: transparent;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.cv-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.cv-name {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text);
+    text-transform: uppercase;
+}
+.cv-contact {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.cv-contact a {
+    color: #cfe7ff;
+    text-decoration: underline;
+}
+.cv-contact a:hover { color: #ffffff; }
+
+/* Sections */
+.cv-container section {
+    padding: 10px 4px;
+    border-radius: 8px;
+}
+.cv-container h2 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    color: var(--accent);
+    letter-spacing: 0.6px;
+}
+.cv-container p {
+    margin: 0 0 10px 0;
+    color: var(--text);
+}
+.cv-container ul {
+    margin: 0 0 8px 1.1rem;
+    padding: 0;
+    color: var(--text);
+}
+.cv-container li {
+    margin-bottom: 8px;
+    line-height: 1.45;
+    font-size: 0.95rem;
+}
+
+/* Download button */
+.btn-download {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 20%, transparent);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 36px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: transparent;
+    color: var(--muted);
+    margin-top: 24px;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-content { padding: 20px; }
+    .cv-name { font-size: 1.25rem; }
+    .nav-links { gap: 10px; }
+}
+@media (max-width: 640px) {
+    .navbar { padding: 8px 12px; }
+    .logo { font-size: 0.95rem; }
+    .nav-links { gap: 8px; font-size: 0.9rem; }
+    .hero { padding: 48px 12px; }
+    .hero-content { padding: 16px; border-radius: 12px; }
+    .cv-container { padding: 8px; }
+}

@@ -1,0 +1,303 @@
+/* src/styles/Evidencias.css */
+:root{
+    --bg: #0b1220;
+    --card: rgba(7,10,16,0.75);
+    --text: #e6eef8;
+    --muted: #9fb3d0;
+    --accent: #60a5fa;
+    --accent-2: #34d399;
+    --glass: rgba(255,255,255,0.04);
+    --transition: 0.25s;
+    --radius: 14px;
+    --shadow: 0 8px 30px rgba(2,6,12,0.6);
+}
+
+/* Reset y cuerpo */
+* { box-sizing: border-box; }
+body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,var(--bg), color-mix(in srgb, var(--bg) 95%, #0000)), #0b1220;
+    color: var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.4;
+}
+
+/* Página / contenedor principal */
+.evidencias-page main { padding: 20px 16px 60px; }
+.evidencias-cards{
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+    box-shadow: 0 6px 18px rgba(3,10,18,0.14);
+}
+
+.evidencias-cards h1{
+    margin: calc(64px + 12px) 0 12px; /* separa del navbar fijo (altura 64px + 12px de espacio) */
+    font-size:1.6rem;
+    font-weight:700;
+    color: var(--text);
+}
+
+/* Header / Navbar */
+.navbar{
+    max-width: 1100px;
+    margin: 18px auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:10px 18px;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, var(--glass), transparent);
+    box-shadow: 0 6px 20px rgba(3,10,18,0.08);
+}
+.logo{
+    font-weight:700;
+    letter-spacing:0.2px;
+    color: var(--text);
+}
+.nav-links{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+.nav-links a{
+    color:var(--muted);
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:10px;
+    transition: background var(--transition), color var(--transition);
+    font-size:0.95rem;
+}
+.nav-links a:hover,
+.nav-links a:focus{ background: rgba(255,255,255,0.02); color:var(--text); outline:none; }
+.nav-links a.active{ color:var(--accent); font-weight:600; }
+
+/* Controles (búsqueda y filtro) */
+.controls{ margin-bottom:18px; }
+.controls h1{ margin:0 0 10px; font-size:1.6rem; }
+.controls-row{ display:flex; gap:12px; align-items:center; }
+
+/* Inputs sólidos (no transparentes) */
+input[type="search"],
+select{
+    padding:10px 12px;
+    font-size:1rem;
+    border:1px solid var(--accent); /* color de acento sólido */
+    background: #071018; /* fondo sólido, sin transparencia */
+    color:var(--text);
+    border-radius: 12px;
+    transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+
+/* Placeholder más legible */
+input[type="search"]::placeholder,
+select::placeholder{
+    color: var(--muted);
+    opacity:1;
+}
+
+/* Enfoque más evidente */
+input[type="search"]:focus,
+select:focus{
+    box-shadow: 0 10px 30px rgba(96,165,250,0.18);
+    border-color: var(--accent);
+    outline:none;
+    transform: translateY(-2px);
+}
+
+/* Grid de tarjetas */
+.cards-grid{
+    display:grid;
+    gap:18px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top:8px;
+}
+
+/* Tarjeta */
+.card{
+    background: var(--card);
+    border-radius: var(--radius);
+    overflow:hidden;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display:flex;
+    flex-direction:column;
+    min-height: 260px;
+    cursor: default;
+}
+.card:focus-visible{
+    outline: 3px solid rgba(96,165,250,0.18);
+    outline-offset: 4px;
+}
+.card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.6); }
+
+/* Figura */
+.card-figure{ width:100%; max-height:160px; overflow:hidden; background:#071018; }
+.card-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Cuerpo */
+.card-body{ padding:14px 14px 18px; display:flex; flex-direction:column; flex:1;}
+.meta-block{ margin-bottom:12px; }
+.meta-type{ font-size:0.82rem; font-weight:700; color:var(--accent); text-transform:capitalize; }
+.meta-title{ font-size:1.05rem; margin:8px 0 6px; font-weight:700; color:var(--text); }
+.meta-desc{ font-size:0.95rem; color:var(--muted); margin:0; flex:1; }
+
+/* Acciones */
+.card-actions{ display:flex; gap:8px; margin-top:12px; align-items:center; }
+.card-btn{
+    background:var(--accent);
+    color:#fff;
+    padding:9px 14px;
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:600;
+    transition: background var(--transition), transform var(--transition);
+}
+.card-btn:hover{ background:var(--accent-2); transform:translateY(-2px); }
+.open-btn{ text-decoration:none; }
+
+/* Pie */
+footer{
+    padding:20px;
+    text-align:center;
+    color:var(--muted);
+    margin-top:30px;
+}
+
+/* Vista previa (overlay) */
+.preview-overlay{
+    position:fixed;
+    inset:0;
+    background: linear-gradient(180deg, rgba(2,6,12,0.65), rgba(2,6,12,0.8));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1200;
+    padding:20px;
+}
+.preview-panel{
+    width:min(1000px, 96%);
+    max-height:90vh;
+    overflow:auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: 16px;
+    box-shadow: 0 28px 80px rgba(2,6,23,0.8);
+    position:relative;
+    padding:18px;
+    backdrop-filter: blur(6px);
+}
+.close-preview{
+    position:absolute;
+    right:12px;
+    top:10px;
+    background:transparent;
+    border:none;
+    color:var(--text);
+    font-size:26px;
+    line-height:1;
+    cursor:pointer;
+    padding:6px 10px;
+    border-radius:10px;
+}
+.close-preview:hover{ background: rgba(255,255,255,0.02); color:var(--accent-2); }
+
+/* Contenido de la vista previa */
+.preview-inner{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    justify-content:space-between;
+}
+.preview-figure{
+    flex:1 1 48%;
+    max-width:48%;
+    background:#071018;
+    border-radius:10px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.preview-figure img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+.preview-meta{
+    flex:1 1 48%;
+    max-width:48%;
+    color:var(--text);
+    display:flex;
+    flex-direction:column;
+}
+.preview-meta h2{ margin:0 0 8px; font-size:1.25rem; }
+.preview-meta p{ color:var(--muted); margin:0 0 14px; }
+.preview-link{
+    display:inline-block;
+    margin-top:auto;
+    padding:10px 14px;
+    background:var(--accent);
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    transition:background var(--transition);
+}
+.preview-link:hover{ background:var(--accent-2); }
+
+/* Accesibilidad: foco visible */
+button:focus, a:focus { outline: none; box-shadow: 0 0 0 3px rgba(96,165,250,0.15); border-radius:8px; }
+
+/* Responsivo */
+@media (max-width: 880px){
+    .preview-inner{ flex-direction:column; }
+    .preview-figure, .preview-meta{ max-width:100%; width:100%; }
+    .card{ min-height: 220px; }
+}
+@media (max-width: 640px){
+    .controls-row{ flex-direction:column; align-items:stretch; }
+    .navbar{ flex-direction:column; gap:8px; align-items:flex-start; padding:12px; }
+    .nav-links{ flex-wrap:wrap; gap:8px; }
+    .cards-grid{ grid-template-columns: 1fr; }
+    .card-figure{ max-height:200px; }
+    .preview-panel{ padding:12px; }
+}
+
+.navbar {
+    position: fixed; /* si ya lo tienes, anota la altura real */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px; /* ajusta según tu diseño */
+    z-index: 1000;
+}
+
+/* Hero + video background */
+.hero {
+    min-height: calc(100vh - 120px);
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+}
+
+.video-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.85;
+}
+
