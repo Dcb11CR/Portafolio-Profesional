@@ -6,6 +6,7 @@ const Home = () => {
   useEffect(() => {
     document.title = "Portafolio Profesional"; // Cambia el título cuando el componente Home se monta
   }, []);
+
   return (
     <div>
       <main>
@@ -19,12 +20,12 @@ const Home = () => {
           </div>
 
           <div className="hero-content">
-            <h1 id="hero-title1" className="fade-in">Portafolio Profesional</h1>
+            <h1 id="hero-title" className="fade-in">Portafolio Profesional</h1>
             <h2 className="fade-in">Diego Campos Borbón</h2>
             <p className="texto slide-up">Desarrollo de Software · Ciberseguridad</p>
 
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '18px' }}>
-              <a href="Intro" className="btn">Entrar al Portafolio</a>
+              <a href="/Intro" className="btn">Entrar al Portafolio</a>
             </div>
 
             <div className="hero-meta" aria-hidden="true">
@@ -44,3 +45,4 @@ const Home = () => {
 };
 
 export default Home;
+
