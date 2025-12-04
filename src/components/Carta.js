@@ -34,7 +34,7 @@ const Carta = () => {
           </div>
 
           <div className="hero-overlay" aria-hidden="false">
-            <article className="hero-card" role="article" aria-labelledby="hero-title">
+            <article className="hero-card" aria-labelledby="hero-title">
               <h1 id="hero-title" className="fade-in">Carta de Presentación</h1>
               <div className="card-body slide-up" tabIndex="0">
 
