@@ -54,7 +54,6 @@ export default function Contacto() {
 
                 <div
                     className="hero-content"
-                    role="region"
                     aria-labelledby="hero-title"
                     style={{
                         position: 'relative',
@@ -169,7 +168,7 @@ export default function Contacto() {
                                         <span style={{ fontSize: '0.9rem' }}>GitHub</span>
                                     </a>
 
-                                     <a
+                                    <a
                                         href="https://wa.me/+50686480047"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -197,7 +196,6 @@ export default function Contacto() {
                         <section
                             className="contact-form slide-up"
                             aria-labelledby="form-heading"
-                            role="region"
                             style={{ background: 'rgba(255,255,255,0.06)', padding: '1.25rem', borderRadius: 10 }}
                         >
                             <h2 id="form-heading" style={{ margin: '0 0 0.75rem 0' }}>
