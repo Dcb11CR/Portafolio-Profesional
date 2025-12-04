@@ -27,7 +27,7 @@ const Diferencia = () => {
             <main>
                 <section className="hero" aria-labelledby="hero-title">
                     <div className="video-bg" aria-hidden="true">
-                        <video autoPlay muted loop playsInline poster="images/preview.jpg">
+                        <video autoPlay muted loop playsInline>
                             <source src="videos/diferencia.mp4" type="video/mp4" />
                             Tu navegador no soporta el video. Puedes descargarlo <a href="videos/215500_small.mp4">aquí</a>.
                         </video>

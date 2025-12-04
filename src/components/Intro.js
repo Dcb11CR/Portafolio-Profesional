@@ -26,7 +26,7 @@ const Intro = () => {
             <main>
                 <section className="hero" aria-labelledby="hero-title">
                     <div className="video-bg" aria-hidden="true">
-                        <video autoPlay muted loop playsInline poster="images/preview.jpg">
+                        <video autoPlay muted loop playsInline>
                             <source src="videos/intro.mp4" type="video/mp4" />
                             Tu navegador no soporta el video. Puedes descargarlo{' '}
                             <a href="videos/intro.mp4">aquí</a>.
